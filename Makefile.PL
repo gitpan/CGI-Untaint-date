@@ -5,7 +5,7 @@ WriteMakefile(
     VERSION_FROM	=> 'lib/CGI/Untaint/date.pm', 
     PREREQ_PM		=> { 
                               CGI::Untaint => 0.07,
-                              Date::Manip => undef,
+                              Date::Manip  => 5.00,
                               Date::Simple => 0.01,
                            }, 
     ($] > 5.005 ? () : (

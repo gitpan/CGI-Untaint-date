@@ -1,5 +1,8 @@
 Revision history 
 
+0.03  Sun Feb  3 14:22:29 GMT 2002
+	+ The CPAN shell doesn't like my prerequisites
+
 0.02  Sun Dec 16 20:29:34 GMT 2001
 	+ Made taint safe. (Ironic, isn't it)
 
