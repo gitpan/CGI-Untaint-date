@@ -22,5 +22,6 @@ ok(my $data = CGI::Untaint->new( $q->Vars ), "Can create the handler");
 $count = 0;
 foreach (@dates) {
   ++$count;
-  is $data->extract(-as_date => "var$count")->format, "2001-12-12";
+  is $data->extract(-as_date => "var$count")->format, "2001-12-12",
+    "$_ = 2001-12-12";
 }

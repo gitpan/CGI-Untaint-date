@@ -6,10 +6,13 @@ use Date::Manip;
 use Date::Simple;
 
 use vars qw/$VERSION/;
-$VERSION = '0.01';
+$VERSION = '0.02';
+
 
 sub is_valid {
   my $self = shift;
+  local $SIG{__WARN__} = sub {};
+  local *Date::Manip::Date_TimeZone = sub { 'GMT' };
   Date_Init('DateFormat=UK');
   my $date = ParseDate($self->value) or return;
   my @date = unpack "A4A2A2", $date;
@@ -41,7 +44,8 @@ sensible, so you could use any of (for example):
   "next Tuesday"
   "third Wednesday in March"
 
-L<Date::Manip> for much more information here.
+L<Date::Manip> for much more information on what date formats are
+acceptable.
 
 The resulting date will be a Date::Simple object. 
 L<Date::Simple> for more information on this.
@@ -50,6 +54,13 @@ L<Date::Simple> for more information on this.
 
 Ambiguous dates of the format 08/09/2001 will be treated
 as UK style (i.e. 9th August, rather than 8th September).
+
+=head1 WARNING
+
+Date::Manip does not play nicely with taint mode. In order to work
+around this we locally clobber Date::Manip's 'timezone' code. As we're
+only interested in dates rather than times, this shouldn't be much of
+an issue. If it is, then please let me know!
 
 =head1 SEE ALSO
 
