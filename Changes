@@ -1,5 +1,9 @@
 Revision history 
 
+1.00  Mon Sep 26 13:58:49 UTC 2005
+	+ Fix documentation for UK vs US date formats 
+  + Allow easier overriding of date format preferences
+
 0.03  Sun Feb  3 14:22:29 GMT 2002
 	+ The CPAN shell doesn't like my prerequisites
 
